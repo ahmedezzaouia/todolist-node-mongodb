@@ -1,1 +1,4 @@
-ECHO is on.
+/node_modules
+npm-debug.log
+.ds_store
+/*.env
