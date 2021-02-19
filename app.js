@@ -34,6 +34,7 @@ app.get("/", function (req, res) {
   itemsCl.find({}, function (err, result) {
     res.render("list", { listTitle: "today", newListItems: result });
   });
+  git;
 });
 
 app.post("/", function (req, res) {
