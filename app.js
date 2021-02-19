@@ -32,7 +32,7 @@ const item3 = { name: "learning Nodejs" };
 
 app.get("/", function (req, res) {
   itemsCl.find({}, function (err, result) {
-    res.render("list", { listTitle: "Today", newListItems: result });
+    res.render("list", { listTitle: "tody", newListItems: result });
   });
 });
 
@@ -40,7 +40,7 @@ app.post("/", function (req, res) {
   const item = req.body.newItem;
   const listName = req.body.listName.toLowerCase();
   console.log("listName:" + listName);
-  if (listName === "Today") {
+  if (listName === "tody") {
     itemsCl.create({ name: item }).then((item) => res.redirect("/"));
   } else {
     lists.findOne({ name: listName }, function (err, result) {
@@ -53,7 +53,7 @@ app.post("/", function (req, res) {
 
 app.post("/delete", function (req, res) {
   console.log(req.body.listName);
-  if (req.body.listName === "Today") {
+  if (req.body.listName === "tody") {
     itemsCl.findByIdAndRemove(req.body.itemId, function (err, result) {});
     res.redirect("/");
   } else {
